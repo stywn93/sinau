@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Logo from "./assets/Logo";
+import { Link } from "react-router";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -35,10 +36,10 @@ function App() {
             <p className="text-slate-900 dark:text-slate-600 text-center text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
           </div>
           <form class="max-w-md mx-auto">
-            <div class="mb-5">
+            <div class="my-5">
               <label
                 for="email"
-                class="block mb-2 text-md font-medium text-gray-900 dark:text-white"
+                class="block mb-1 text-md font-medium text-gray-900 dark:text-white"
               >
                 Your email
               </label>
@@ -53,7 +54,7 @@ function App() {
             <div class="mb-5">
               <label
                 for="password"
-                class="block mb-2 text-md font-medium text-gray-900 dark:text-white"
+                class="block mb-1 text-md font-medium text-gray-900 dark:text-white"
               >
                 Your password
               </label>
@@ -82,12 +83,20 @@ function App() {
                 Remember me
               </label>
             </div>
-            <button
-              type="submit"
-              class="text-slate-100 dark:text-slate-900 bg-slate-900 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-100 dark:hover:bg-slate-50 dark:focus:ring-slate-800"
-            >
-              Submit
-            </button>
+            <div className="mb-4 flex flex-col sm:flex-row justify-evenly gap-4">
+              <button
+                type="submit"
+                className="flex-1 text-slate-100 dark:text-slate-900 bg-slate-900 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-slate-100 dark:hover:bg-slate-50 dark:focus:ring-slate-800 cursor-pointer"
+              >
+                Submit
+              </button>
+              <Link
+              to="/"
+                className="flex-1 text-slate-900 dark:text-slate-50 bg-slate-400 hover:bg-slate-300 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-50 dark:focus:ring-slate-600"
+              >
+                Create an Account
+              </Link>
+            </div>
           </form>
         </div>
       </div>
