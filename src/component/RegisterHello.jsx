@@ -90,7 +90,7 @@ export default function RegisterHello(){
             <div className="mb-4 flex flex-col sm:flex-row justify-evenly gap-4">
               <Link
                 to="/register"
-                className="flex-1 text-slate-900 dark:text-slate-50 bg-slate-400 hover:bg-slate-300 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-xl text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-50 dark:focus:ring-slate-600"
+                className="flex-1 text-slate-900 dark:text-slate-50 font-medium rounded-xl text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:underline"
               >
                 Back to Previous
               </Link>
