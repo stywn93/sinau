@@ -6,19 +6,54 @@ import { useEffectOnce, useLocalStorage } from "react-use";
 
 export default function RegisterHello() {
   const [firstname, setFirstname] = useState("");
-  
+
   const validationYup = Yup.object({
     phoneNumber: Yup.string().required("Phone number is required"),
     password: Yup.string().required("Password is required"),
-    repPassword: Yup.string().required("Please retype password"),
+    repPassword: Yup.string()
+      .required("Please retype password")
+      .oneOf([Yup.ref("password")], "Password must match"),
+    dob: Yup.date()
+      .nullable()
+      .max(new Date(), "Date of birth cannot be in the future"),
+    country: Yup.string()
+      .trim()
+      .min(2, "Country name must be at least 2 chars"),
   });
 
   useEffectOnce(() => {
-    const dataku = localStorage.getItem("users", []);
-    console.log(dataku);
-    // const user = JSON.parse(dataku);
-    // setFirstname(user[0].firstName);
+    //gunakan try catch untuk mengecek apakah localStorage ada isinya
+    try {
+      const userData = localStorage.getItem("users");
+      if (!userData) {
+        console.error("No user data found");
+        return;
+      }
+      const parsedData = JSON.parse(userData);
+      if (parsedData?.firstName) {
+        setFirstname(parsedData.firstName);
+      }
+    } catch (error) {
+      console.error("Error loading user data", error);
+    }
   });
+
+  const initialValues = {
+    phoneNumber: "",
+    password: "",
+    repPassword: "",
+    dob: "",
+    country: "",
+  };
+  const handleSubmit = (val, { setSubmitting }) => {
+    try {
+      console.log(val);
+    } catch (error) {
+      console.error("Error on submit", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div>
@@ -34,17 +69,9 @@ export default function RegisterHello() {
             </p>
           </div>
           <Formik
-            initialValues={{
-              phoneNumber: "",
-              password: "",
-              repPassword: "",
-              dob: "",
-              country: "",
-            }}
+            initialValues={initialValues}
             validationSchema={validationYup}
-            onSubmit={(val) => {
-              console.log(val);
-            }}
+            onSubmit={handleSubmit}
           >
             <Form className="max-w-md mx-auto">
               <div className="my-5">
