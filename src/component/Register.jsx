@@ -1,10 +1,11 @@
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useLocalStorage } from "react-use";
 
 export default function Register() {
   const [users, setUsers] = useLocalStorage("users", []);
+  const navigate = useNavigate;
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -48,10 +49,15 @@ export default function Register() {
           </div>
           {/* use Formik Library to simplify process */}
           <Formik
-            initialValues={{ email: "", firstname: "", lastname: "" }}
+            initialValues={{ 
+              email: "", 
+              firstname: "", 
+              lastname: "" 
+            }}
             validationSchema={validationSchema}
             onSubmit={(val) => {
               console.log(val);
+              // navigate("/");
             }}
           >
             <form className="max-w-md mx-auto">
@@ -68,7 +74,7 @@ export default function Register() {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="user@demo.app"
-                  required
+
                 />
               </div>
               <div className="my-5">
@@ -84,7 +90,7 @@ export default function Register() {
                   id="firstName"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="John"
-                  required
+
                 />
               </div>
               <div className="my-5">
@@ -100,7 +106,7 @@ export default function Register() {
                   id="lastName"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Smith"
-                  required
+
                 />
               </div>
 
@@ -111,12 +117,12 @@ export default function Register() {
                 >
                   to Login Page
                 </Link>
-                <Link
-                  to={"/register-hello"}
+                <button
+                  type="submit"
                   className="flex-1 text-slate-100 dark:text-slate-900 bg-slate-900 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-xl text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-slate-100 dark:hover:bg-slate-50 dark:focus:ring-slate-800 cursor-pointer"
                 >
                   Continue
-                </Link>
+                </button>
               </div>
             </form>
           </Formik>
