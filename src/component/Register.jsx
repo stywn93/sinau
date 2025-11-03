@@ -1,11 +1,14 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router";
-import { useLocalStorage } from "react-use";
+import { useEffectOnce, useLocalStorage } from "react-use";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css"
+import { useEffect } from "react";
 
 export default function Register() {
   const [users, setUsers] = useLocalStorage("users", []);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -56,16 +59,21 @@ export default function Register() {
             }}
             validationSchema={validationSchema}
             onSubmit={(val) => {
+              localStorage.removeItem("users");
               setUsers([
-                ...users,
                 {
                   email: val.email,
                   firstName: val.firstName,
-                  lastName: val.lastName
+                  lastName: val.lastName,
                 },
               ]);
-              console.info("saved to local storage");
-
+              Toastify({
+                text: "Data Saved!",
+                duration: 3000,
+              }).showToast();
+              setTimeout(() => {
+                navigate("/register-hello");
+              }, 3000);
             }}
           >
             <Form className="max-w-md mx-auto">

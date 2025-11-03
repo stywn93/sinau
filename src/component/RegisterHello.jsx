@@ -1,13 +1,27 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 export default function RegisterHello(){
+const [firstname, setFirstname] = useState('');
+
+useEffect(() => {
+  const dataku = localStorage.getItem("users");
+  if(dataku){
+    const user = JSON.parse(dataku);
+    if(user.length > 0) {
+      const lastUser = user[user.length - 1];
+      setFirstname(lastUser.firstName);
+    }
+  }
+})
+
   return(
     <div>
       <div className="flex flex-col p-2 m-3 justify-center items-center min-h-screen">
         <div className="border p-5 border-slate-200 dark:border-slate-800 rounded-4xl bg-slate-100 dark:bg-slate-900">
           <div className="m-2">
             <h1 className="text-3xl font-semibold text-slate-8¥900 dark:text-slate-200 mb-1 text-center">
-              Welcome Iwan!
+              Welcome {firstname}
             </h1>
             <p className="text-slate-900 dark:text-slate-600 text-center text-sm">
               Please complete your Registration before we can continue processing your request.
