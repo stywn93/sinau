@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { Link, useNavigate } from "react-router";
 import { useEffectOnce, useLocalStorage } from "react-use";
 import Toastify from "toastify-js";
-import "toastify-js/src/toastify.css"
+import "toastify-js/src/toastify.css";
 import { useEffect } from "react";
 
 export default function Register() {
