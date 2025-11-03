@@ -1,4 +1,4 @@
-import { Field, Formik } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router";
 import { useLocalStorage } from "react-use";
@@ -49,18 +49,26 @@ export default function Register() {
           </div>
           {/* use Formik Library to simplify process */}
           <Formik
-            initialValues={{ 
-              email: "", 
-              firstname: "", 
-              lastname: "" 
+            initialValues={{
+              email: "",
+              firstName: "",
+              lastName: "",
             }}
             validationSchema={validationSchema}
             onSubmit={(val) => {
-              console.log(val);
-              // navigate("/");
+              setUsers([
+                ...users,
+                {
+                  email: val.email,
+                  firstName: val.firstName,
+                  lastName: val.lastName
+                },
+              ]);
+              console.info("saved to local storage");
+
             }}
           >
-            <form className="max-w-md mx-auto">
+            <Form className="max-w-md mx-auto">
               <div className="my-5">
                 <label
                   htmlFor="email"
@@ -74,12 +82,16 @@ export default function Register() {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="user@demo.app"
-
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-600 text-xs mt-2"
                 />
               </div>
               <div className="my-5">
                 <label
-                  htmlFor="firstname"
+                  htmlFor="firstName"
                   className="block mb-1 text-md font-medium text-gray-900 dark:text-white after:content-['*'] after:text-red-500"
                 >
                   Firstname
@@ -90,12 +102,16 @@ export default function Register() {
                   id="firstName"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="John"
-
+                />
+                <ErrorMessage
+                  name="firstName"
+                  component="div"
+                  className="error text-red-600 text-xs mt-2"
                 />
               </div>
               <div className="my-5">
                 <label
-                  htmlFor="lastname"
+                  htmlFor="lastName"
                   className="block mb-1 text-md font-medium text-gray-900 dark:text-white after:content-['*'] after:text-red-500"
                 >
                   Lastname
@@ -106,7 +122,11 @@ export default function Register() {
                   id="lastName"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Smith"
-
+                />
+                <ErrorMessage
+                  name="lastName"
+                  component="div"
+                  className="error text-red-600 text-xs mt-2"
                 />
               </div>
 
@@ -124,7 +144,7 @@ export default function Register() {
                   Continue
                 </button>
               </div>
-            </form>
+            </Form>
           </Formik>
         </div>
         <footer className="text-center text-slate-500 dark:text-slate-200 text-sm mt-10">
