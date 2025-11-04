@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { data, Link } from "react-router";
 import { useEffectOnce, useLocalStorage } from "react-use";
+import { userRegister } from "../libs/api";
 
 export default function RegisterHello() {
   const [firstname, setFirstname] = useState("");
@@ -47,7 +48,32 @@ export default function RegisterHello() {
   };
   const handleSubmit = (val, { setSubmitting }) => {
     try {
-      console.log(val);
+      /**
+      const response = userRegister({
+        email,
+        firstname,
+        lastname,
+        password,
+        phonenumber,
+        dob,
+        country,
+      });
+      const responseBody = response.json();
+      console.log(responseBody);
+      if (response.status === 200) {
+        navigate({
+          pathname: "/login",
+        });
+      } else {
+        alertError(responseBody.errors);
+      }
+      */
+
+      const obj1 = JSON.parse(localStorage.getItem("users"));
+      const obj2 = val;
+      const combined = { ...obj1, ...obj2 };
+      
+      console.log(combined.email);
     } catch (error) {
       console.error("Error on submit", error);
     } finally {
