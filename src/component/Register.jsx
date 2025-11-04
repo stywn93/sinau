@@ -7,7 +7,7 @@ import "toastify-js/src/toastify.css";
 import { useEffect } from "react";
 
 export default function Register() {
-  const [users, setUsers] = useLocalStorage("users", []);
+  const [users, setUsers] = useLocalStorage("users", {});
   const navigate = useNavigate();
 
   const validationSchema = Yup.object({
@@ -60,20 +60,20 @@ export default function Register() {
             validationSchema={validationSchema}
             onSubmit={(val) => {
               localStorage.removeItem("users");
-              setUsers([
+              setUsers(
                 {
                   email: val.email,
                   firstName: val.firstName,
                   lastName: val.lastName,
                 },
-              ]);
+              );
               Toastify({
                 text: "Data Saved!",
-                duration: 3000,
+                duration: 1500,
               }).showToast();
               setTimeout(() => {
                 navigate("/register-hello");
-              }, 3000);
+              }, 1500);
             }}
           >
             <Form className="max-w-md mx-auto">

@@ -1,12 +1,16 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import { data, Link } from "react-router";
+import { data, Link, useNavigate } from "react-router";
 import { useEffectOnce, useLocalStorage } from "react-use";
 import { userRegister } from "../libs/api";
 
+import { toast } from "../libs/toast";
+
 export default function RegisterHello() {
   const [firstname, setFirstname] = useState("");
+  const navigate = useNavigate();
+  const [users] = useLocalStorage("users");
 
   const validationYup = Yup.object({
     phoneNumber: Yup.string().required("Phone number is required"),
@@ -46,38 +50,42 @@ export default function RegisterHello() {
     dob: "",
     country: "",
   };
-  const handleSubmit = (val, { setSubmitting }) => {
-    try {
-      /**
-      const response = userRegister({
-        email,
-        firstname,
-        lastname,
-        password,
-        phonenumber,
-        dob,
-        country,
-      });
-      const responseBody = response.json();
-      console.log(responseBody);
-      if (response.status === 200) {
-        navigate({
-          pathname: "/login",
-        });
-      } else {
-        alertError(responseBody.errors);
-      }
-      */
 
-      const obj1 = JSON.parse(localStorage.getItem("users"));
-      const obj2 = val;
-      const combined = { ...obj1, ...obj2 };
+  const handleSubmit = async (val, { setSubmitting }) => {
+    try {
       
-      console.log(combined.email);
+      const obj2 = val;
+      const combined = { ...users, ...obj2 };
+      console.log(combined);
+      const response = await userRegister({
+        email: combined.email,
+        firstname: combined.firstName,
+        lastname: combined.lastName,
+        password: combined.password,
+        phonenumber: combined.phoneNumber,
+        dob: combined.dob,
+        country: combined.country,
+      });
+      const responseBody = await response.json();
+      console.log(responseBody);
+
+      if (response.status === 201) {
+        toast("User Registered Successfully", 3000);
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      } else {
+        console.log("error di sini");
+        toast(responseBody.message, 5000);
+      }
     } catch (error) {
-      console.error("Error on submit", error);
+      Toastify({
+        text: error,
+        duration: 5000,
+      }).showToast();
     } finally {
       setSubmitting(false);
+      localStorage.clear();
     }
   };
 
