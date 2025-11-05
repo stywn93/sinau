@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Register from "./component/Register.jsx";
 import RegisterHello from "./component/RegisterHello.jsx";
+import DashboardLayout from "./component/DashboardLayout.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -12,6 +13,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/register-hello" element={<RegisterHello />}></Route>
+        <Route path="/dashboard" element={<DashboardLayout />}></Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>
