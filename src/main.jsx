@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/register" element={<Register />}></Route>
         <Route path="/register-hello" element={<RegisterHello />}></Route>
         <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route path="home" element={<Resume />}></Route>
+          <Route index element={<Resume />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

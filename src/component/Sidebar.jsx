@@ -3,7 +3,7 @@ import { FaApple, FaHouseChimneyWindow, FaFileLines } from "react-icons/fa6";
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 flex gap-4 bg-slate-800 flex-col ease-in p-4 rounded-2xl m-4 h-[calc(100vh-2rem)]">
+    <aside className="w-64 flex gap-4 bg-slate-800 flex-col ease-in p-4 rounded-2xl ml-4 mt-4 h-[calc(100vh-2rem)]">
       <div
         className="flex justify-center items-center uppercase text-2xl text-slate-50 w-full min-h-[100px]"
         id="sidebarHeader"
