@@ -1,18 +1,32 @@
 import { Link } from "react-router";
-import { FaApple, FaHouseChimneyWindow, FaFileLines } from "react-icons/fa6";
+import {
+  FaChevronLeft,
+  FaApple,
+  FaHouseChimneyWindow,
+  FaFileLines,FaRegCircleLeft
+} from "react-icons/fa6";
+import { useState } from "react";
 
-export default function Sidebar({isOpen}) {
+export default function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <aside className={`flex gap-4 bg-slate-800 flex-col rounded-2xl ml-4 mt-4 min-h-[calc(100vh-2rem)] transition-all duration-700`}>
+    <aside
+      className={`flex w-full md:w-sm bg-linear-180 from-sky-400 to-sky-900 flex-col rounded-2xl m-4 transition-all duration-700`}
+    >
       <div
-        className="flex justify-center items-center uppercase text-2xl text-slate-50 w-full p-4 min-h-[100px]"
+        className="flex items-center justify-between p-4 text-2xl uppercase text-slate-50"
         id="sidebarHeader"
       >
-        <FaApple className="text-8xl" />
+        <FaApple className="text-6xl" />
+        <button
+          className="p-2 cursor-pointer bg-sky-50 hover:bg-sky-100 rounded-xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <FaChevronLeft className="text-2xl text-slate-800" />
+        </button>
       </div>
-      {/* <hr className="mx-4 text-slate-50" /> */}
-      <div className="w-full text-slate-50" id="navigation">
-        <ul className="flex flex-col gap-4 my-4 list-none">
+      <div className="w-full flex-1 text-slate-50" id="navigation">
+        <ul className="flex flex-col gap-2 my-4 list-none">
           <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl">
             <Link
               to={"/dashboard"}
@@ -49,6 +63,21 @@ export default function Sidebar({isOpen}) {
               Course 3
             </Link>
           </li>
+        </ul>
+      </div>
+      <div className="w-full text-slate-50" id="profile">
+        <ul className="flex flex-col gap-2 my-4 list-none">
+          <li className="p-4 mx-4 text-md bg-orange-400 rounded-2xl hover:bg-orange-500 hover:text-slate-100 hover:rounded-2xl">
+            <Link
+              to={"/dashboard"}
+              className="flex flex-row items-center gap-2"
+            >
+              <FaRegCircleLeft className="text-2xl" />
+              Sign Out
+            </Link>
+          </li>
+        
+          
         </ul>
       </div>
     </aside>
