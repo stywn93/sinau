@@ -20,10 +20,10 @@ export default function Register() {
 
   return (
     <div>
-      <div className="flex flex-col p-2 m-3 justify-center items-center min-h-screen">
-        <div className="border p-5 border-slate-200 dark:border-slate-800 rounded-4xl bg-slate-100 dark:bg-slate-900">
+      <div className="flex flex-col items-center justify-center min-h-screen p-2 m-3">
+        <div className="p-5 border border-slate-200 dark:border-slate-800 rounded-4xl bg-slate-100 dark:bg-slate-900">
           <div className="flex justify-center mb-2">
-            <div className="block bg-slate-100 shadow-xl p-4 rounded-2xl">
+            <div className="block p-4 shadow-xl bg-slate-100 rounded-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -45,7 +45,7 @@ export default function Register() {
             <h1 className="text-3xl font-semibold text-slate-8¥900 dark:text-slate-200 mb-1 text-center">
               Create an Account
             </h1>
-            <p className="text-slate-900 dark:text-slate-600 text-center text-sm">
+            <p className="text-sm text-center text-slate-900 dark:text-slate-600">
               You can a new account to access this platform. Please fill up this
               form first.
             </p>
@@ -94,7 +94,7 @@ export default function Register() {
                 <ErrorMessage
                   name="email"
                   component="div"
-                  className="text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600"
                 />
               </div>
               <div className="my-5">
@@ -114,7 +114,7 @@ export default function Register() {
                 <ErrorMessage
                   name="firstName"
                   component="div"
-                  className="error text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600 error"
                 />
               </div>
               <div className="my-5">
@@ -134,11 +134,11 @@ export default function Register() {
                 <ErrorMessage
                   name="lastName"
                   component="div"
-                  className="error text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600 error"
                 />
               </div>
 
-              <div className="mb-4 flex flex-col sm:flex-row justify-evenly gap-4">
+              <div className="flex flex-col mb-4 sm:flex-row justify-evenly gap-4">
                 <Link
                   to="/"
                   className="flex-1 text-slate-900 dark:text-slate-50 font-medium rounded-xl text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:underline"
@@ -155,7 +155,7 @@ export default function Register() {
             </Form>
           </Formik>
         </div>
-        <footer className="text-center text-slate-500 dark:text-slate-200 text-sm mt-10">
+        <footer className="mt-10 text-sm text-center text-slate-500 dark:text-slate-200">
           Sinau - Open Learning Management System
         </footer>
       </div>

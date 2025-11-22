@@ -8,10 +8,10 @@ function App() {
 
   return (
     <div>
-      <div className="flex flex-col p-2 m-3 justify-center items-center min-h-screen">
-        <div className="border p-5 border-slate-200 dark:border-slate-800 rounded-4xl bg-slate-100 dark:bg-slate-900">
+      <div className="flex flex-col items-center justify-center min-h-screen p-2 m-3">
+        <div className="p-5 border border-slate-200 dark:border-slate-800 rounded-4xl bg-slate-100 dark:bg-slate-900">
           <div className="flex justify-center mb-2">
-            <div class="block bg-slate-100 shadow-xl p-4 rounded-2xl">
+            <div class="block p-4 shadow-xl bg-slate-100 rounded-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
@@ -35,7 +35,7 @@ function App() {
             <h1 className="text-3xl font-semibold text-slate-8¥900 dark:text-slate-200 mb-1 text-center">
               Login to start
             </h1>
-            <p className="text-slate-900 dark:text-slate-600 text-center text-sm">
+            <p className="text-sm text-center text-slate-900 dark:text-slate-600">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
@@ -43,7 +43,7 @@ function App() {
             <div class="my-5">
               <label
                 for="email"
-                class="block mb-1 text-md font-medium text-gray-900 dark:text-white"
+                class="block mb-1 font-medium text-gray-900 text-md dark:text-white"
               >
                 Your email
               </label>
@@ -58,7 +58,7 @@ function App() {
             <div class="mb-5">
               <label
                 for="password"
-                class="block mb-1 text-md font-medium text-gray-900 dark:text-white"
+                class="block mb-1 font-medium text-gray-900 text-md dark:text-white"
               >
                 Your password
               </label>
@@ -82,12 +82,12 @@ function App() {
               </div>
               <label
                 for="remember"
-                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300"
               >
                 Remember me
               </label>
             </div>
-            <div className="mb-4 flex flex-col sm:flex-row justify-evenly gap-4">
+            <div className="flex flex-col mb-4 sm:flex-row justify-evenly gap-4">
               <Link
                 to="/register"
                 className="flex-1 text-slate-900 dark:text-slate-50 bg-slate-200 hover:bg-slate-100 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-xl text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-50 dark:focus:ring-slate-600"
@@ -103,7 +103,7 @@ function App() {
             </div>
           </form>
         </div>
-        <footer className="text-center text-slate-500 dark:text-slate-200 text-sm mt-10">
+        <footer className="mt-10 text-sm text-center text-slate-500 dark:text-slate-200">
           Sinau - Open Learning Management System
         </footer>
       </div>

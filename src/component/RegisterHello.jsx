@@ -91,13 +91,13 @@ export default function RegisterHello() {
 
   return (
     <div>
-      <div className="flex flex-col p-2 m-3 justify-center items-center min-h-screen">
-        <div className="border p-5 border-slate-200 dark:border-slate-800 rounded-4xl bg-slate-100 dark:bg-slate-900">
+      <div className="flex flex-col items-center justify-center min-h-screen p-2 m-3">
+        <div className="p-5 border border-slate-200 dark:border-slate-800 rounded-4xl bg-slate-100 dark:bg-slate-900">
           <div className="m-2">
             <h1 className="text-3xl font-semibold text-slate-8¥900 dark:text-slate-200 mb-1 text-center">
               Welcome {firstname}
             </h1>
-            <p className="text-slate-900 dark:text-slate-600 text-center text-sm">
+            <p className="text-sm text-center text-slate-900 dark:text-slate-600">
               Please complete your Registration before we can continue
               processing your request.
             </p>
@@ -126,7 +126,7 @@ export default function RegisterHello() {
                 <ErrorMessage
                   name="phoneNumber"
                   component="div"
-                  className="text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600"
                 />
               </div>
               <div className="my-5">
@@ -147,7 +147,7 @@ export default function RegisterHello() {
                 <ErrorMessage
                   name="password"
                   component="div"
-                  className="text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600"
                 />
               </div>
               <div className="my-5">
@@ -168,13 +168,13 @@ export default function RegisterHello() {
                 <ErrorMessage
                   name="repPassword"
                   component="div"
-                  className="text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600"
                 />
               </div>
               <div className="my-5">
                 <label
                   htmlFor="dob"
-                  className="block mb-1 text-md font-medium text-gray-900 dark:text-white"
+                  className="block mb-1 font-medium text-gray-900 text-md dark:text-white"
                 >
                   Date of Birth
                 </label>
@@ -188,13 +188,13 @@ export default function RegisterHello() {
                 <ErrorMessage
                   name="dob"
                   component="div"
-                  className="text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600"
                 />
               </div>
               <div className="my-5">
                 <label
                   htmlFor="country"
-                  className="block mb-1 text-md font-medium text-gray-900 dark:text-white"
+                  className="block mb-1 font-medium text-gray-900 text-md dark:text-white"
                 >
                   Country
                 </label>
@@ -208,10 +208,10 @@ export default function RegisterHello() {
                 <ErrorMessage
                   name="country"
                   component="div"
-                  className="text-red-600 text-xs mt-2"
+                  className="mt-2 text-xs text-red-600"
                 />
               </div>
-              <div className="mb-4 flex flex-col sm:flex-row justify-evenly gap-4">
+              <div className="flex flex-col mb-4 sm:flex-row justify-evenly gap-4">
                 <Link
                   to="/register"
                   className="flex-1 text-slate-900 dark:text-slate-50 font-medium rounded-xl text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:underline"
@@ -228,7 +228,7 @@ export default function RegisterHello() {
             </Form>
           </Formik>
         </div>
-        <footer className="text-center text-slate-500 dark:text-slate-200 text-sm mt-10">
+        <footer className="mt-10 text-sm text-center text-slate-500 dark:text-slate-200">
           Sinau - Open Learning Management System
         </footer>
       </div>
