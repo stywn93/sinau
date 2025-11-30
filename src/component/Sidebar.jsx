@@ -22,7 +22,7 @@ export default function Sidebar() {
           className="p-2 cursor-pointer bg-sky-50 hover:bg-sky-100 rounded-xl"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <FaChevronLeft className="text-2xl text-slate-800" />
+          <FaChevronLeft className="text-xl text-slate-800" />
         </button>
       </div>
       <div className="w-full flex-1 text-slate-50" id="navigation">
