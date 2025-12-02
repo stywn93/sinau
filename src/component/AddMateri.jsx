@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Editor from './Editor';
 import Quill from 'quill';
+import 'quill/dist/quill.snow.css';
 
 const Delta = Quill.import('delta');
 
@@ -19,7 +20,7 @@ const AddMateri = () => {
         ref={quillRef}
         readOnly={readOnly}
         defaultValue={new Delta()
-          .insert('Hello')
+          .insert('Hello there')
           .insert('\n', { header: 1 })
           .insert('Some ')
           .insert('initial', { bold: true })
@@ -29,7 +30,7 @@ const AddMateri = () => {
         onSelectionChange={setRange}
         onTextChange={setLastChange}
       />
-      <div className="flex p-3">
+      <div>
         <label>
           Read Only:{' '}
           <input
@@ -39,7 +40,7 @@ const AddMateri = () => {
           />
         </label>
         <button
-          className="controls-right"
+          className="ml-auto"
           type="button"
           onClick={() => {
             alert(quillRef.current?.getLength());
@@ -48,7 +49,7 @@ const AddMateri = () => {
           Get Content Length
         </button>
       </div>
-      <div className="state">
+      <div className="my-2.5 mx-0">
         <div className="state-title">Current Range:</div>
         {range ? JSON.stringify(range) : 'Empty'}
       </div>
