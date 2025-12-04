@@ -1,8 +1,8 @@
 export default function Table() {
   return (
-    <div className="my-2 relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-2xl border border-default">
+    <div className="my-2 relative overflow-x-auto bg-neutral-100-soft shadow-xs rounded-2xl border border-gray-300">
       <table className="w-full text-sm text-left rtl:text-right text-body">
-        <thead className="bg-neutral-secondary-soft border-b border-default">
+        <thead className="bg-neutral-200 border-b border-gray-300">
           <tr>
             <th scope="col" className="px-6 py-3 font-medium">
               Product name
@@ -22,7 +22,7 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          <tr className="odd:bg-slate-100 even:bg-slate-800 border-b border-default">
+          <tr className="odd:bg-neutral-50 even:bg-neutral-200 border-b border-gray-300">
             <th
               scope="row"
               className="px-6 py-4 font-medium text-heading whitespace-nowrap"
@@ -38,7 +38,7 @@ export default function Table() {
               </a>
             </td>
           </tr>
-          <tr className="odd:bg-slate-100 even:bg-slate-300 border-b border-default">
+          <tr className="odd:bg-slate-100 even:bg-neutral-200 border-b border-gray-300">
             <th
               scope="row"
               className="px-6 py-4 font-medium text-heading whitespace-nowrap"
@@ -54,7 +54,7 @@ export default function Table() {
               </a>
             </td>
           </tr>
-          <tr className="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
+          <tr className="odd:bg-neutral-100 even:bg-neutral-200 border-b border-gray-300">
             <th
               scope="row"
               className="px-6 py-4 font-medium text-heading whitespace-nowrap"
@@ -70,7 +70,7 @@ export default function Table() {
               </a>
             </td>
           </tr>
-          <tr className="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
+          <tr className="odd:bg-neutral-100 even:bg-neutral-200 border-b border-gray-300">
             <th
               scope="row"
               className="px-6 py-4 font-medium text-heading whitespace-nowrap"
@@ -86,7 +86,7 @@ export default function Table() {
               </a>
             </td>
           </tr>
-          <tr className="odd:bg-neutral-primary even:bg-neutral-secondary-soft">
+          <tr className="odd:bg-neutral-100 even:bg-neutral-200">
             <th
               scope="row"
               className="px-6 py-4 font-medium text-heading whitespace-nowrap"
