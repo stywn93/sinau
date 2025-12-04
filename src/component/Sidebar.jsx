@@ -3,7 +3,10 @@ import {
   FaChevronLeft,
   FaApple,
   FaHouseChimneyWindow,
-  FaFileLines,FaRegCircleLeft
+  FaFileLines,
+  FaRegCircleLeft,
+  FaFileInvoice,
+  FaRedRiver, FaUsersBetweenLines, FaFileCirclePlus
 } from "react-icons/fa6";
 import { useState } from "react";
 
@@ -41,8 +44,8 @@ export default function Sidebar() {
               to={"/dashboard"}
               className="flex flex-row items-center gap-2"
             >
-              <FaFileLines className="text-2xl" />
-              Course 1
+              <FaFileInvoice className="text-2xl" />
+              Manajemen Kursus
             </Link>
           </li>
           <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
@@ -50,8 +53,8 @@ export default function Sidebar() {
               to={"/dashboard"}
               className="flex flex-row items-center gap-2"
             >
-              <FaFileLines className="text-2xl" />
-              Course 2
+              <FaRedRiver className="text-2xl" />
+              Manajemen Kelas
             </Link>
           </li>
           <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
@@ -59,8 +62,17 @@ export default function Sidebar() {
               to={"/dashboard"}
               className="flex flex-row items-center gap-2"
             >
-              <FaFileLines className="text-2xl" />
-              Course 3
+              <FaUsersBetweenLines className="text-2xl" />
+              Manajemen Peserta
+            </Link>
+          </li>
+          <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
+            <Link
+              to={"/dashboard/add-materi"}
+              className="flex flex-row items-center gap-2"
+            >
+              <FaFileCirclePlus className="text-2xl" />
+              Tambah Materi
             </Link>
           </li>
         </ul>
@@ -76,8 +88,6 @@ export default function Sidebar() {
               Sign Out
             </Link>
           </li>
-        
-          
         </ul>
       </div>
     </aside>

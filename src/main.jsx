@@ -19,6 +19,7 @@ createRoot(document.getElementById("root")).render(
           <Route index element={<Resume />}></Route>
           <Route path="add-materi" element={<AddMateri />}></Route>
         </Route>
+
       </Routes>
     </BrowserRouter>
   </StrictMode>
