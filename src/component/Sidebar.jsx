@@ -14,7 +14,7 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <aside
-      className={`flex w-full md:w-sm bg-linear-180 from-sky-400 to-sky-900 flex-col rounded-2xl m-4 transition-all duration-700`}
+      className={`flex w-full md:w-sm bg-slate-800 flex-col rounded-2xl m-4 transition-all duration-700`}
     >
       <div
         className="flex items-center justify-between p-4 text-2xl uppercase text-slate-50"
@@ -41,7 +41,7 @@ export default function Sidebar() {
           </li>
           <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
             <Link
-              to={"/dashboard"}
+              to={"/dashboard/course-management"}
               className="flex flex-row items-center gap-2"
             >
               <FaFileInvoice className="text-2xl" />
@@ -50,7 +50,7 @@ export default function Sidebar() {
           </li>
           <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
             <Link
-              to={"/dashboard"}
+              to={"/dashboard/class-management"}
               className="flex flex-row items-center gap-2"
             >
               <FaRedRiver className="text-2xl" />
@@ -59,7 +59,7 @@ export default function Sidebar() {
           </li>
           <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
             <Link
-              to={"/dashboard"}
+              to={"/dashboard/student-management"}
               className="flex flex-row items-center gap-2"
             >
               <FaUsersBetweenLines className="text-2xl" />
@@ -79,7 +79,7 @@ export default function Sidebar() {
       </div>
       <div className="w-full text-slate-50" id="profile">
         <ul className="flex flex-col gap-2 my-4 list-none">
-          <li className="p-4 mx-4 text-md bg-orange-400 rounded-2xl hover:bg-orange-500 hover:text-slate-100 hover:rounded-2xl">
+          <li className="p-4 mx-4 text-md bg-slate-600 rounded-2xl hover:bg-red-500 hover:text-slate-100 hover:rounded-2xl">
             <Link
               to={"/dashboard"}
               className="flex flex-row items-center gap-2"
