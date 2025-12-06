@@ -12,7 +12,6 @@ export default function DashboardLayout() {
         <div className="flex items-center justify-between mb-4">
           
           <h1 className="text-4xl text-sky-900">Student of Future</h1>
-
         </div>
 
         <Outlet />
