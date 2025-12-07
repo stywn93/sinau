@@ -8,10 +8,9 @@ export default function DashboardLayout() {
   return (
     <div className="flex flex-col md:flex-row">
       <Sidebar/>
-      <main className="w-full bg-slate-200 flex-row ease-in p-4 m-4 rounded-2xl min-h-[calc(100vh-2rem)] h-full">
+      <main className="w-full bg-slate-200 dark:bg-slate-900 flex-row ease-in p-4 m-4 rounded-2xl min-h-[calc(100vh-2rem)] h-full">
         <div className="flex items-center justify-between mb-4">
         </div>
-
         <Outlet />
       </main>
     </div>

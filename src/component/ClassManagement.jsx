@@ -3,7 +3,7 @@ import Table from "./Table";
 export default function ClassManagement() {
   return (
     <>
-      <h1 className="text-3xl text-gray-900">
+      <h1 className="text-3xl text-gray-900 dark:text-gray-100">
         Ini adalah halaman Class Manajemen
       </h1>
       <Table
