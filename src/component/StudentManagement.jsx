@@ -3,7 +3,7 @@ import Table from "./Table";
 export default function StudentManagement() {
   return (
     <>
-      <h1 className="text-3xl text-gray-900 dark:text-gray-100">
+      <h1 className="text-3xl text-gray-900 dark:text-gray-100 mb-4">
         Ini adalah halaman Manajemen Peserta
       </h1>
       <Table

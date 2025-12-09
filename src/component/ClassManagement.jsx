@@ -3,8 +3,8 @@ import Table from "./Table";
 export default function ClassManagement() {
   return (
     <>
-      <h1 className="text-3xl text-gray-900 dark:text-gray-100">
-        Ini adalah halaman Class Manajemen
+      <h1 className="text-3xl text-gray-900 dark:text-gray-100 mb-4">
+        Ini adalah halaman Manajemen Kelas
       </h1>
       <Table
         columns={[

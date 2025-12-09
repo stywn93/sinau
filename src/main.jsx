@@ -10,6 +10,7 @@ import AddMateri from "./component/AddMateri.jsx";
 import ClassManagement from "./component/ClassManagement.jsx";
 import StudentManagement from "./component/StudentManagement.jsx";
 import CourseManagement from "./component/CourseManagement.jsx";
+import AddCourse from "./component/AddCourse.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,9 +22,12 @@ createRoot(document.getElementById("root")).render(
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Resume />}></Route>
           <Route path="add-materi" element={<AddMateri />}></Route>
-          <Route path="class-management" element={<ClassManagement/>}/>
-          <Route path="student-management" element={<StudentManagement/>}/>
-          <Route path="course-management" element={<CourseManagement/>}/>
+          <Route path="class-management" element={<ClassManagement />} />
+          <Route path="student-management" element={<StudentManagement />} />
+          <Route path="course-management">
+            <Route index element={<CourseManagement />} />
+            <Route path="add" element={<AddCourse />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
