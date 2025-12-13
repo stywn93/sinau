@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../nodejs-mysql-api"
+		},
+		{
+			"path": "../belajar-reactjs-contact-management"
 		}
 	],
 	"settings": {}

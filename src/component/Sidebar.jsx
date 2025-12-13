@@ -3,89 +3,92 @@ import {
   FaChevronLeft,
   FaApple,
   FaHouseChimneyWindow,
-  FaFileLines,
   FaRegCircleLeft,
   FaFileInvoice,
-  FaRedRiver, FaUsersBetweenLines, FaFileCirclePlus
+  FaRedRiver,
+  FaUsersBetweenLines,
+  FaFileCirclePlus,
 } from "react-icons/fa6";
 import { useState } from "react";
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <aside
-      className={`flex w-full md:w-sm bg-slate-800 flex-col rounded-2xl m-4 transition-all duration-700`}
+      className={`flex ${isOpen ? "max-w-full md:w-sm" : "w-20"} bg-slate-800 flex-col rounded-2xl m-4 transition-all duration-700`}
     >
       <div
-        className="flex items-center justify-between p-4 text-2xl uppercase text-slate-50"
+        className={`flex items-center justify-between ${isOpen ? "md:justify-between" : "md:justify-center"} p-4 text-2xl uppercase text-slate-50`}
         id="sidebarHeader"
       >
-        <FaApple className="text-6xl" />
+        <FaApple className={`text-6xl ${isOpen ? "" : "hidden"}`} />
         <button
           className="p-2 cursor-pointer bg-sky-50 hover:bg-sky-100 rounded-xl"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
         >
           <FaChevronLeft className="text-xl text-slate-800" />
         </button>
       </div>
       <div className="w-full flex-1 text-slate-50" id="navigation">
-        <ul className="flex flex-col gap-2 my-4 list-none">
-          <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl">
+        <ul className={`flex flex-col ${isOpen ? "gap-2" : "gap-4"}  my-4 list-none `}>
+          <li className={`${isOpen ? "p-4 mx-4" : "p-2 mx-2"} text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl`}>
             <Link
               to={"/dashboard"}
-              className="flex flex-row items-center gap-2"
+              className={`flex flex-row items-center ${isOpen ? "" : "justify-center"} gap-2 `}
             >
               <FaHouseChimneyWindow className="text-2xl" />
-              Dashboard
+              {isOpen ? "Dashboard" : ""}
             </Link>
           </li>
-          <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
+          <li className={`${isOpen ? "p-4 mx-4" : "p-2 mx-2"} text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl`}>
             <Link
               to={"/dashboard/course-management"}
-              className="flex flex-row items-center gap-2"
+              className={`flex flex-row items-center ${isOpen ? "" : "justify-center"} gap-2`}
             >
               <FaFileInvoice className="text-2xl" />
-              Manajemen Kursus
+              {isOpen ? "Manajemen Kursus" : ""}
             </Link>
           </li>
-          <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
+          <li className={`${isOpen ? "p-4 mx-4" : "p-2 mx-2"} text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl`}>
             <Link
               to={"/dashboard/class-management"}
-              className="flex flex-row items-center gap-2"
+              className={`flex flex-row items-center ${isOpen ? "" : "justify-center"} gap-2`}
             >
               <FaRedRiver className="text-2xl" />
-              Manajemen Kelas
+              {isOpen ? "Manajemen Kelas" : ""}
             </Link>
           </li>
-          <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
+          <li className={`${isOpen ? "p-4 mx-4" : "p-2 mx-2"} text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl`}>
             <Link
               to={"/dashboard/student-management"}
-              className="flex flex-row items-center gap-2"
+              className={`flex flex-row items-center ${isOpen ? "" : "justify-center"} gap-2`}
             >
               <FaUsersBetweenLines className="text-2xl" />
-              Manajemen Peserta
+              {isOpen ? "Manajemen Peserta" : ""}
             </Link>
           </li>
-          <li className="p-4 mx-4 text-md hover:bg-slate-100 hover:text-slate-800 rounded-2xl">
+          <li className={`${isOpen ? "p-4 mx-4" : "p-2 mx-2"} text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl`}>
             <Link
               to={"/dashboard/add-materi"}
-              className="flex flex-row items-center gap-2"
+              className={`flex flex-row items-center ${isOpen ? "" : "justify-center"} gap-2`}
             >
               <FaFileCirclePlus className="text-2xl" />
-              Tambah Materi
+              {isOpen ? "Tambah Materi" : ""}
             </Link>
           </li>
         </ul>
       </div>
       <div className="w-full text-slate-50" id="profile">
         <ul className="flex flex-col gap-2 my-4 list-none">
-          <li className="p-4 mx-4 text-md bg-slate-600 rounded-2xl hover:bg-red-500 hover:text-slate-100 hover:rounded-2xl">
+          <li className={`${isOpen ? "p-4 mx-4" : "p-2 mx-2"} text-md hover:bg-slate-100 hover:text-slate-800 hover:rounded-2xl`}>
             <Link
               to={"/dashboard"}
-              className="flex flex-row items-center gap-2"
+              className={`flex flex-row items-center ${isOpen ? "" : "justify-center"} gap-2`}
             >
               <FaRegCircleLeft className="text-2xl" />
-              Sign Out
+              {isOpen ? "Sign Out" : ""}
             </Link>
           </li>
         </ul>
